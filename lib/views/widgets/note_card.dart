@@ -22,6 +22,13 @@ class NoteCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppStyle.cardsColor[note.color],
             borderRadius: BorderRadius.circular(8.0),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.shade400,
+                  spreadRadius: 1,
+                  blurRadius: 5 // Mức độ lan tỏa của bóng đổ
+                  ),
+            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,6 +36,8 @@ class NoteCard extends StatelessWidget {
               Text(
                 note.title,
                 style: AppStyle.mainTitle,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
                 height: 4,
@@ -43,6 +52,7 @@ class NoteCard extends StatelessWidget {
               Text(
                 note.content,
                 style: AppStyle.mainContent,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
             ],
