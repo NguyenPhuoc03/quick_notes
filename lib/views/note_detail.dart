@@ -29,6 +29,9 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
       appBar: AppBar(
         backgroundColor: AppStyle.cardsColor[color],
         elevation: 0.0,
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.check)),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
 import 'package:quick_notes/models/notes_models.dart';
 import 'package:quick_notes/views/note_create.dart';
-import 'package:quick_notes/views/widgets/custom_note_card.dart';
+import 'package:quick_notes/views/widgets/icon_button_column.dart';
 
 import '../styles/style_app.dart';
 import 'widgets/note_card.dart';
@@ -54,14 +54,11 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 10,
-            ),
             Expanded(
               child: Consumer<NotesControllers>(
                 builder: (context, notesControllers, child) {
@@ -81,33 +78,6 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index) {
                       final note = notesControllers.notes[index];
                       return GestureDetector(
-                        onLongPress: () {
-                          showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              return Container(
-                                color: Colors.white,
-                                child: Wrap(
-                                  children: <Widget>[
-                                    ListTile(
-                                      leading: Icon(Icons.delete),
-                                      title: Text('Xóa'),
-                                      //NotesControllers notesControllers =
-                                      //Provider.of<NotesControllers>(context, listen: false);
-                                      //await notesControllers.deleteNote(note.data);
-                                      onTap: () {},
-                                    ),
-                                    ListTile(
-                                      leading: Icon(Icons.share),
-                                      title: Text('Chia sẻ'),
-                                      onTap: () {},
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                        },
                         child: NoteCard(
                           note: note,
                           onTap: () {
@@ -120,6 +90,44 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                         ),
+                        onLongPress: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                  color: Colors.white,
+                                  height: 100,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      IconButtonColumn(
+                                          onPressed: () {},
+                                          icon: Icons.lock_outline,
+                                          text: "Hide"),
+                                      IconButtonColumn(
+                                          onPressed: () {},
+                                          icon: Icons.push_pin_outlined,
+                                          text: "Pin"),
+                                      IconButtonColumn(
+                                          onPressed: () {},
+                                          icon: Icons.share_outlined,
+                                          text: "Share"),
+                                      IconButtonColumn(
+                                          onPressed: () async {
+                                            await Provider.of<NotesControllers>(
+                                                    context,
+                                                    listen: false)
+                                                .deleteNote(note);
+                                            Navigator.pop(context);
+                                          },
+                                          icon: Icons.delete_outlined,
+                                          text: "Delete"),
+                                    ],
+                                  ));
+                            },
+                          );
+                        },
                       );
                     },
                     gridDelegate:
