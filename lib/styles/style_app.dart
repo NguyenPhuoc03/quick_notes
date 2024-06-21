@@ -19,6 +19,15 @@ class AppStyle {
     Colors.yellow.shade100,
   ];
 
+  static List<Color> textCardColor = [
+    Colors.red.shade400,
+    Colors.pink.shade400,
+    Colors.orange.shade400,
+    Colors.green.shade400,
+    Colors.blue.shade400,
+    Colors.yellow.shade400,
+  ];
+
   static TextStyle mainTitle =
       GoogleFonts.roboto(fontSize: 18.0, fontWeight: FontWeight.bold);
   static TextStyle mainContent =

@@ -115,11 +115,12 @@ class _HomePageState extends State<HomePage> {
                                           text: "Share"),
                                       IconButtonColumn(
                                           onPressed: () async {
+                                            Navigator.pop(context);
                                             await Provider.of<NotesControllers>(
                                                     context,
                                                     listen: false)
                                                 .deleteNote(note);
-                                            Navigator.pop(context);
+                                            
                                           },
                                           icon: Icons.delete_outlined,
                                           text: "Delete"),

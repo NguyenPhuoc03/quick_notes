@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
 import 'package:quick_notes/styles/style_app.dart';
+import 'package:quick_notes/views/widgets/bottom_sheet_change_color.dart';
 
 import '../models/notes_models.dart';
 
@@ -19,18 +20,47 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   String date = DateTime.now().toString();
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
+  late int color;
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     _titleController.text = widget.note.title;
     _contentController.text = widget.note.content;
-    int color = widget.note.color;
+    color = widget.note.color;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyle.cardsColor[color],
       appBar: AppBar(
         backgroundColor: AppStyle.cardsColor[color],
         elevation: 0.0,
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.check)),
+          IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return BottomSheetChangeColor(
+                        onColorSelected: (int? selectedColor) {
+                      setState(() {
+                        color = selectedColor!;
+                        Provider.of<NotesControllers>(context, listen: false)
+                            .updateColor(widget.note.id!, color);
+                      });
+                    });
+                  },
+                  barrierColor: Colors.transparent,
+                  backgroundColor: Colors.grey.shade200,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                );
+              },
+              icon: Icon(Icons.palette_outlined)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.check)),
         ],
       ),
       body: Padding(
@@ -76,11 +106,12 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
             title: _titleController.text,
             content: _contentController.text,
             createAt: date,
-            color: widget.note.color,
+            color: color,
           );
           NotesControllers notesControllers =
               Provider.of<NotesControllers>(context, listen: false);
           await notesControllers.updateNote(note);
+          print(color);
           if (notesControllers.isSuccess) {
             AnimatedSnackBar.rectangle(
               'Success',

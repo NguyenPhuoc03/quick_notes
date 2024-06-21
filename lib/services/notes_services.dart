@@ -39,6 +39,18 @@ class NotesServices {
     }
   }
 
+    Future<bool> updateColor(String id, int color) async {
+    try {
+      await _firestore.collection('Notes').doc(id).update({
+        'color_id': color,
+      });
+      return true;
+    } catch (e) {
+      print("Error: ${e.toString()}");
+      return false;
+    }
+  }
+
   Future<bool> deleteNote(Note note) async {
     try {
       await _firestore.collection('Notes').doc(note.id).delete();

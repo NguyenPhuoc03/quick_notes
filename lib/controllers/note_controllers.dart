@@ -72,6 +72,21 @@ class NotesControllers extends ChangeNotifier {
     }
   }
 
+    Future<void> updateColor(String id, int color) async {
+    resetStatus();
+    try {
+      _isSuccess = await _notesServices.updateColor(id, color);
+      _message = _isSuccess
+          ? "Update color successfully!"
+          : "Update color unsuccessfully!";
+    } catch (e) {
+      _message = "Update color unsuccessfully!";
+      print("Error: ${e.toString()}");
+    } finally {
+      notifyListeners();
+    }
+  }
+
   Future<void> deleteNote(Note note) async {
     resetStatus();
     try {
