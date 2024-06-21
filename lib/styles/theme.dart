@@ -1,0 +1,5 @@
+class MyTheme{
+  static lightMode (){
+    
+  }
+}

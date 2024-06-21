@@ -1,11 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
-import 'package:quick_notes/models/notes_models.dart';
-import 'package:quick_notes/views/note_create.dart';
 import 'package:quick_notes/views/widgets/icon_button_column.dart';
 
 import '../styles/style_app.dart';
@@ -20,11 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isDragTargetVisible = false;
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -46,7 +39,9 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppStyle.secondaryColor,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/setting");
+              },
               icon: Icon(
                 Icons.settings,
                 color: AppStyle.textColor,
@@ -120,7 +115,6 @@ class _HomePageState extends State<HomePage> {
                                                     context,
                                                     listen: false)
                                                 .deleteNote(note);
-                                            
                                           },
                                           icon: Icons.delete_outlined,
                                           text: "Delete"),
@@ -144,10 +138,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NoteCreatePage()),
-          );
+          Navigator.pushNamed(context, "/createNote");
         },
         label: const Text("Add Note"),
         icon: Icon(

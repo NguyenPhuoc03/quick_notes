@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
+import 'package:quick_notes/views/note_create.dart';
+import 'package:quick_notes/views/note_detail.dart';
+import 'package:quick_notes/views/setting_page.dart';
 import 'firebase_options.dart';
 import 'views/home_page.dart';
 
@@ -34,6 +37,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => HomePage(),
+        "/setting": (context) =>  SettingPage(),
+        "/createNote": (context) => NoteCreatePage()
       },
     );
   }
