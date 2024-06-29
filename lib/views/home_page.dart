@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
 import 'package:quick_notes/views/widgets/icon_button_column.dart';
 
-import '../styles/style_app.dart';
 import 'widgets/note_card.dart';
 import 'note_detail.dart';
 
@@ -23,20 +22,15 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: AppStyle.mainColor,
       appBar: AppBar(
         elevation: 0.0,
         title: Text(
           "Quick Notes",
-          style: TextStyle(
-            color: AppStyle.textColor,
-            fontSize: 23,
-            fontWeight: FontWeight.bold,
-          ),
+          style: theme.appBarTheme.titleTextStyle,
         ),
-        centerTitle: true,
-        backgroundColor: AppStyle.secondaryColor,
+        backgroundColor: theme.appBarTheme.backgroundColor,
         actions: [
           IconButton(
               onPressed: () {
@@ -44,7 +38,6 @@ class _HomePageState extends State<HomePage> {
               },
               icon: Icon(
                 Icons.settings,
-                color: AppStyle.textColor,
               )),
         ],
       ),
@@ -87,10 +80,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                         onLongPress: () {
                           showModalBottomSheet(
+                            //# backgroundColor: theme.bottomSheetTheme.backgroundColor,
                             context: context,
                             builder: (context) {
-                              return Container(
-                                  color: Colors.white,
+                              return SizedBox(
                                   height: 100,
                                   child: Row(
                                     mainAxisAlignment:
@@ -100,14 +93,6 @@ class _HomePageState extends State<HomePage> {
                                           onPressed: () {},
                                           icon: Icons.lock_outline,
                                           text: "Hide"),
-                                      IconButtonColumn(
-                                          onPressed: () {},
-                                          icon: Icons.push_pin_outlined,
-                                          text: "Pin"),
-                                      IconButtonColumn(
-                                          onPressed: () {},
-                                          icon: Icons.share_outlined,
-                                          text: "Share"),
                                       IconButtonColumn(
                                           onPressed: () async {
                                             Navigator.pop(context);
@@ -137,13 +122,14 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        //# backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
         onPressed: () {
           Navigator.pushNamed(context, "/createNote");
         },
-        label: const Text("Add Note"),
-        icon: Icon(
+        //# color (label, icon) in theme.colorScheme.onPrimary
+        label: const Text("Add Note",),
+        icon: const Icon(
           Icons.add,
-          color: Colors.black,
         ),
       ),
     );

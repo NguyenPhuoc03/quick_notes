@@ -13,7 +13,7 @@ class BottomSheetChangeColor extends StatefulWidget {
 class _BottomSheetChangeColorState extends State<BottomSheetChangeColor> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 175,
       child: ListView(
         scrollDirection: Axis.horizontal,

@@ -11,6 +11,7 @@ class NoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -23,7 +24,7 @@ class NoteCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.0),
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey.shade400,
+                  color: theme.colorScheme.onSecondaryContainer,
                   spreadRadius: 1,
                   blurRadius: 5 // Mức độ lan tỏa của bóng đổ
                   ),
@@ -34,23 +35,23 @@ class NoteCard extends StatelessWidget {
             children: [
               Text(
                 note.title,
-                style: AppStyle.mainTitle,
+                style: theme.textTheme.titleLarge,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 4,
               ),
               Text(
                 note.createAt,
-                style: AppStyle.dateTitle,
+                style: theme.textTheme.titleSmall,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Text(
                 note.content,
-                style: AppStyle.mainContent,
+                style: theme.textTheme.titleMedium,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),

@@ -22,6 +22,7 @@ class _NoteCreatePageState extends State<NoteCreatePage> {
   TextEditingController _contentController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: AppStyle.cardsColor[color_id],
       appBar: AppBar(
@@ -29,35 +30,35 @@ class _NoteCreatePageState extends State<NoteCreatePage> {
         elevation: 0.0,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(children: [
+        padding: const EdgeInsets.all(16),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           TextField(
             controller: _titleController,
-            decoration: InputDecoration(
-              border: InputBorder.none,
+            decoration: const InputDecoration(
               hintText: "Note Title",
+              counterText: '',
             ),
-            style: AppStyle.mainTitle,
+            maxLength: 75,
+            style: theme.textTheme.titleLarge,
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Text(
             date,
-            style: AppStyle.dateTitle,
+            style: theme.textTheme.titleSmall,
           ),
-          SizedBox(
+          const SizedBox(
             height: 28,
           ),
           TextField(
             controller: _contentController,
             keyboardType: TextInputType.multiline,
             maxLines: null,
-            decoration: InputDecoration(
-              border: InputBorder.none,
+            decoration: const InputDecoration(
               hintText: "Note Content",
             ),
-            style: AppStyle.mainContent,
+            style: theme.textTheme.titleMedium,
           ),
         ]),
       ),
@@ -95,8 +96,8 @@ class _NoteCreatePageState extends State<NoteCreatePage> {
           }
           Navigator.pop(context);
         },
-        backgroundColor: AppStyle.accentColor,
         child: Icon(Icons.save),
+        //# background: fab, color: colorSchema.onPrimary
       ),
     );
   }

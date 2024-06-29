@@ -10,7 +10,7 @@ import '../models/notes_models.dart';
 class NoteDetailPage extends StatefulWidget {
   final Note note;
 
-  const NoteDetailPage({required this.note});
+  const NoteDetailPage({super.key, required this.note});
 
   @override
   State<NoteDetailPage> createState() => _NoteDetailPageState();
@@ -32,6 +32,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: AppStyle.cardsColor[color],
       appBar: AppBar(
@@ -40,6 +41,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
         actions: [
           IconButton(
               onPressed: () {
+                FocusScope.of(context).unfocus();
                 showModalBottomSheet(
                   context: context,
                   builder: (context) {
@@ -53,91 +55,85 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                     });
                   },
                   barrierColor: Colors.transparent,
-                  backgroundColor: Colors.grey.shade200,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                  //# backgroundColor: theme.bottomSheetTheme.backgroundColor,
                 );
               },
               icon: Icon(Icons.palette_outlined)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.check)),
+          IconButton(
+              onPressed: () async {
+                FocusScope.of(context).unfocus();
+                final note = Note(
+                  id: widget.note.id,
+                  title: _titleController.text,
+                  content: _contentController.text,
+                  createAt: date,
+                  color: color,
+                );
+                NotesControllers notesControllers =
+                    Provider.of<NotesControllers>(context, listen: false);
+                await notesControllers.updateNote(note);
+                if (notesControllers.isSuccess) {
+                  AnimatedSnackBar.rectangle(
+                    'Success',
+                    notesControllers.message ?? '',
+                    type: AnimatedSnackBarType.success,
+                    brightness: Brightness.light,
+                    duration: const Duration(milliseconds: 2500),
+                  ).show(
+                    context,
+                  );
+                } else {
+                  AnimatedSnackBar.rectangle(
+                    'Error',
+                    notesControllers.message ?? '',
+                    type: AnimatedSnackBarType.error,
+                    brightness: Brightness.light,
+                    duration: const Duration(milliseconds: 2500),
+                  ).show(
+                    context,
+                  );
+                }
+                notesControllers.resetStatus();
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.check)),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-                controller: _titleController,
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Note Title",
-                ),
-                style: AppStyle.mainTitle),
+              controller: _titleController,
+              decoration: const InputDecoration(
+                hintText: "Note Title",
+                counterText: '',
+              ),
+              maxLength: 75,
+              style: theme.textTheme.titleLarge,
+            ),
             const SizedBox(
               height: 4,
             ),
             Text(
               widget.note.createAt,
-              style: AppStyle.dateTitle,
+              style: theme.textTheme.titleSmall,
             ),
             const SizedBox(
               height: 28,
             ),
             TextField(
-                controller: _contentController,
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Note Content",
-                ),
-                style: AppStyle.mainContent),
+              controller: _contentController,
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
+              decoration: const InputDecoration(
+                hintText: "Note Content",
+              ),
+              style: theme.textTheme.titleMedium,
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final note = Note(
-            id: widget.note.id,
-            title: _titleController.text,
-            content: _contentController.text,
-            createAt: date,
-            color: color,
-          );
-          NotesControllers notesControllers =
-              Provider.of<NotesControllers>(context, listen: false);
-          await notesControllers.updateNote(note);
-          print(color);
-          if (notesControllers.isSuccess) {
-            AnimatedSnackBar.rectangle(
-              'Success',
-              notesControllers.message ?? '',
-              type: AnimatedSnackBarType.success,
-              brightness: Brightness.light,
-              duration: const Duration(milliseconds: 2500),
-            ).show(
-              context,
-            );
-          } else {
-            AnimatedSnackBar.rectangle(
-              'Error',
-              notesControllers.message ?? '',
-              type: AnimatedSnackBarType.error,
-              brightness: Brightness.light,
-              duration: const Duration(milliseconds: 2500),
-            ).show(
-              context,
-            );
-          }
-          notesControllers.resetStatus();
-          Navigator.pop(context);
-        },
-        backgroundColor: AppStyle.accentColor,
-        child: Icon(Icons.save),
       ),
     );
   }
