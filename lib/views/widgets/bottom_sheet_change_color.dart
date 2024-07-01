@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quick_notes/styles/style_app.dart';
+import 'package:quick_notes/styles/notes_colors_styles.dart';
 
 class BottomSheetChangeColor extends StatefulWidget {
   //final ValueChanged<Color?> onColorSelected;
@@ -18,7 +18,7 @@ class _BottomSheetChangeColorState extends State<BottomSheetChangeColor> {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          for (int i = 0; i < AppStyle.cardsColor.length; i++)
+          for (int i = 0; i < StyleNotes.cardsColor.length; i++)
             //for (var color in AppStyle.cardsColor)
             GestureDetector(
               onTap: () {
@@ -30,14 +30,14 @@ class _BottomSheetChangeColorState extends State<BottomSheetChangeColor> {
                 width: 120,
                 margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
                 decoration: BoxDecoration(
-                  color: AppStyle.cardsColor[i],
+                  color: StyleNotes.cardsColor[i],
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Icon(
                   Icons.notes,
                   size: 50,
                   weight: 200,
-                  color: AppStyle.textCardColor[i],
+                  color: StyleNotes.textCardColor[i],
                 ),
               ),
             )

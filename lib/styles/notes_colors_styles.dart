@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppStyle {
+class StyleNotes {
   static List<Color> cardsColor = [
     Colors.red.shade100,
     Colors.pink.shade100,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quick_notes/styles/theme.dart';
+import 'package:quick_notes/styles/theme_styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DarkModeControllers extends ChangeNotifier {

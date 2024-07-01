@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quick_notes/styles/style_app.dart';
+import 'package:quick_notes/styles/notes_colors_styles.dart';
 
 import '../../models/notes_models.dart';
 
@@ -20,7 +20,7 @@ class NoteCard extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           margin: const EdgeInsets.all(8.0),
           decoration: BoxDecoration(
-            color: AppStyle.cardsColor[note.color],
+            color: StyleNotes.cardsColor[note.color],
             borderRadius: BorderRadius.circular(8.0),
             boxShadow: [
               BoxShadow(

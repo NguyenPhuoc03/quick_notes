@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
 import 'package:quick_notes/models/notes_models.dart';
-import 'package:quick_notes/styles/style_app.dart';
+import 'package:quick_notes/styles/notes_colors_styles.dart';
+import 'package:quick_notes/utils/date_utils.dart';
 
 class NoteCreatePage extends StatefulWidget {
   const NoteCreatePage({super.key});
@@ -15,18 +16,18 @@ class NoteCreatePage extends StatefulWidget {
 }
 
 class _NoteCreatePageState extends State<NoteCreatePage> {
-  int color_id = Random().nextInt(AppStyle.cardsColor.length);
+  int color_id = Random().nextInt(StyleNotes.cardsColor.length);
 
-  String date = DateTime.now().toString();
+  String date = Date.now().toString();
   TextEditingController _titleController = TextEditingController();
   TextEditingController _contentController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: AppStyle.cardsColor[color_id],
+      backgroundColor: StyleNotes.cardsColor[color_id],
       appBar: AppBar(
-        backgroundColor: AppStyle.cardsColor[color_id],
+        backgroundColor: StyleNotes.cardsColor[color_id],
         elevation: 0.0,
       ),
       body: Padding(

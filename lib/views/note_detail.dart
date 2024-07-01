@@ -2,7 +2,7 @@ import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
-import 'package:quick_notes/styles/style_app.dart';
+import 'package:quick_notes/styles/notes_colors_styles.dart';
 import 'package:quick_notes/views/widgets/bottom_sheet_change_color.dart';
 
 import '../models/notes_models.dart';
@@ -34,9 +34,9 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: AppStyle.cardsColor[color],
+      backgroundColor: StyleNotes.cardsColor[color],
       appBar: AppBar(
-        backgroundColor: AppStyle.cardsColor[color],
+        backgroundColor: StyleNotes.cardsColor[color],
         elevation: 0.0,
         actions: [
           IconButton(

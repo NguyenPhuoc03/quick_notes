@@ -28,12 +28,12 @@ class AppTheme {
 
   static final TextTheme _lightTextTheme = TextTheme(
     headlineLarge: const TextStyle(
-          color: _lightOnPrimaryColor,
-          fontFamily: "Roboto",
-          fontWeight: FontWeight.bold,
-          fontSize: 21),
+        color: _lightOnPrimaryColor,
+        fontFamily: "Roboto",
+        fontWeight: FontWeight.bold,
+        fontSize: 21),
     displaySmall: const TextStyle(
-      color: _lightOnPrimaryColor, //Colors.black
+      color: _lightOnPrimaryColor,
       fontSize: 16.0,
     ),
     labelSmall: const TextStyle(
@@ -50,15 +50,21 @@ class AppTheme {
         fontSize: 13.0,
         color: _lightOnPrimaryColor,
         fontWeight: FontWeight.w500), //dateTitle
+    bodyMedium: GoogleFonts.nunito(
+      fontSize: 16.0,
+      color: _lightOnPrimaryColor,
+    ),
+    bodySmall: const TextStyle(
+        fontSize: 12, color: _lightOnPrimaryColor, fontFamily: "Roboto"),
   );
 
 //dark
   static final TextTheme _darkTextTheme = TextTheme(
     headlineLarge: const TextStyle(
-          color: _darkOnPrimaryColor,
-          fontFamily: "Roboto",
-          fontWeight: FontWeight.bold,
-          fontSize: 21),
+        color: _darkOnPrimaryColor,
+        fontFamily: "Roboto",
+        fontWeight: FontWeight.bold,
+        fontSize: 21),
     displaySmall: const TextStyle(
       color: _darkTextColor,
       fontSize: 16.0,
@@ -77,6 +83,12 @@ class AppTheme {
         fontSize: 13.0,
         color: _darkTextColor,
         fontWeight: FontWeight.w500), //dateTitle
+    bodyMedium: GoogleFonts.nunito(
+        fontSize: 16.0,
+        color: _darkOnPrimaryColor,
+        fontWeight: FontWeight.w500),
+    bodySmall: const TextStyle(
+        fontSize: 12, color: _darkOnPrimaryColor, fontFamily: "Roboto"),
   );
   static final _darkPrimaryColor = Colors.grey.shade600;
   static final Color _darkSecondaryColor = Colors.grey.shade700;
@@ -112,7 +124,7 @@ class AppTheme {
       ),
     ),
     iconTheme: IconThemeData(
-      color:_lightOnPrimaryColor,
+      color: _lightOnPrimaryColor,
     ),
     floatingActionButtonTheme:
         FloatingActionButtonThemeData(backgroundColor: _lightThirdColor),
@@ -181,11 +193,11 @@ class AppTheme {
         if (states.contains(MaterialState.selected)) {
           return _darkIconFirstColor;
         }
-        return _lightIconFirstColor; 
+        return _lightIconFirstColor;
       }),
       trackColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
-          return _darkIconSecondColor; 
+          return _darkIconSecondColor;
         }
         return _lightIconSecondColor;
       }),
@@ -193,7 +205,7 @@ class AppTheme {
         if (states.contains(MaterialState.selected)) {
           return _darkIconFirstColor;
         }
-        return _lightIconFirstColor; 
+        return _lightIconFirstColor;
       }),
     ),
   );

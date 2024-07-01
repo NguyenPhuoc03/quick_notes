@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Navigator.pushNamed(context, "/setting");
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.settings,
               )),
         ],
@@ -54,10 +54,10 @@ class _HomePageState extends State<HomePage> {
                     return const Center(child: CircularProgressIndicator());
                   }
                   if (notesControllers.notes.isEmpty) {
-                    return Text(
-                      "There's no Notes",
-                      style: GoogleFonts.nunito(
-                        color: Colors.white,
+                    return Center(
+                      child: Text(
+                        "There's no Notes",
+                        style: theme.textTheme.bodyMedium,
                       ),
                     );
                   }
@@ -127,7 +127,9 @@ class _HomePageState extends State<HomePage> {
           Navigator.pushNamed(context, "/createNote");
         },
         //# color (label, icon) in theme.colorScheme.onPrimary
-        label: const Text("Add Note",),
+        label: const Text(
+          "Add Note",
+        ),
         icon: const Icon(
           Icons.add,
         ),
