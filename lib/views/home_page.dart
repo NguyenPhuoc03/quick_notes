@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_notes/controllers/note_controllers.dart';
 import 'package:quick_notes/views/widgets/icon_button_column.dart';

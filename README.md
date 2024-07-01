@@ -5,6 +5,7 @@ Quick Notes is a simple note-taking app developed with Flutter, using Cloud Fire
 
 ## Main fuction
 - Add, edit, and delete notes.
+- Change light - dark mode
 - Sync notes with Cloud Firestore.
 - Cross-platform support (Android and iOS).
   
@@ -20,7 +21,7 @@ Quick Notes is a simple note-taking app developed with Flutter, using Cloud Fire
 - **Framework**: **Flutter**, a robust framework for creating cross-platform applications.
 - **Database**: Data is stored in **Cloud Firestore**, a scalable and flexible NoSQL cloud database to store and sync data in real-time.
 - **Cloud Service**: **Firebase**, a comprehensive cloud service that provides tools for app development, including analytics, authentication, and real-time databases.
-- **IDE**: Development was carried out in **Visual Studio Code** and **Android Studio**
+- **IDE**: **Visual Studio Code** or **Android Studio**
 Dart: Programming language used to develop Flutter applications.
 Flutter: Framework that enables cross-platform mobile application development.
 Cloud Firestore: Firebase database service used to store notes data.
