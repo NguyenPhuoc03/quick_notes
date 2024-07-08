@@ -9,6 +9,12 @@ Quick Notes is a simple note-taking app developed with Flutter, using Cloud Fire
 - Change light - dark mode
 - Sync notes with Cloud Firestore.
 - Cross-platform support (Android and iOS).
+
+## Screenshots
+<p>
+<img src="https://user-images.githubusercontent.com/38410384/122596221-2b447080-d087-11eb-96ff-e8797d46bdd5.png" alt="login screen" width = "250" > 
+</p>
+
   
 ## Setting
 - Flutter SDK (latest version)
