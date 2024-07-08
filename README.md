@@ -12,7 +12,7 @@ Quick Notes is a simple note-taking app developed with Flutter, using Cloud Fire
 
 ## Screenshots
 <p>
-<img src="https://user-images.githubusercontent.com/38410384/122596221-2b447080-d087-11eb-96ff-e8797d46bdd5.png" alt="login screen" width = "250" > 
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/f1c84ac8-de4d-4f71-925a-49a8381d679f" alt="login screen" width = "250" > 
 </p>
 
   
