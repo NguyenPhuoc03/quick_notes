@@ -12,7 +12,27 @@ Quick Notes is a simple note-taking app developed with Flutter, using Cloud Fire
 
 ## Screenshots
 <p> 
-<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/c1f094ce-f6b0-47e2-929c-692e8a71504d" alt="Description" width="250"/>
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/c1f094ce-f6b0-47e2-929c-692e8a71504d" alt="Light Home Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/c1f094ce-f6b0-47e2-929c-692e8a71504d" alt="Dark Home Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/9e43e536-70a5-4260-973a-ab2eccf1820b" alt="Light Home Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/a14f13d0-e588-4498-a35f-dd05f75783b1" alt="Dark Home Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/d36b92a9-773a-459f-88b8-582694aaf548" alt="Light Option Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/748819f7-daf2-49e9-9746-14c6fc9e287d" alt="Dark Option Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/28827dbd-bf39-44b9-84a7-3d137e93f9b0" alt="Create Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/cc1b85d8-091a-4d11-aca3-d23ea1c1e70e" alt="Light Change Color" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/22083ed6-7fba-4688-825d-f994fbf72f6c" alt="Dark Change Color" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/12dbcd2c-2b6a-465f-b492-b8f3248f3610" alt="Light Setting Screen" width="250"/>
+
+<img src="https://github.com/NguyenPhuoc03/basicQuickNotes/assets/169374059/ee3f2d50-16b3-4a90-9918-d6e02b1255b3" alt="Dark Setting Screen" width="250"/>
 </p>
 
   
