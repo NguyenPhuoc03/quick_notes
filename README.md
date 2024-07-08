@@ -3,8 +3,9 @@
 
 Quick Notes is a simple note-taking app developed with Flutter, using Cloud Firestore as the storage database. This app helps you store notes quickly and easily, and provides a great opportunity to learn and develop basic Flutter and Firebase skills.
 
-## Main fuction
+## Features
 - Add, edit, and delete notes.
+- Colorful notes (random)
 - Change light - dark mode
 - Sync notes with Cloud Firestore.
 - Cross-platform support (Android and iOS).
